@@ -1,0 +1,4 @@
+class EventsContoller < ApplicationController
+
+
+end
