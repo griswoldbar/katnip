@@ -18,3 +18,8 @@
 //= require backbone_datalink
 //= require backbone/katnip
 //= require_tree .
+
+(function() {
+	var app = new Katnip.Routers.AppRouter();
+	Backbone.history.start();	
+})
