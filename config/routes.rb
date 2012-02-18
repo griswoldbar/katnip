@@ -1,6 +1,8 @@
 Katnip::Application.routes.draw do
   
-  resources :cats
+  resources :cats do
+    resources :events
+  end
   resources :events
   
   root :to => 'pages#home'
