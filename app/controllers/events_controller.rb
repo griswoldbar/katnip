@@ -1,4 +1,4 @@
-class EventsContoller < ApplicationController
+class EventsController < ApplicationController
 
 
 end
