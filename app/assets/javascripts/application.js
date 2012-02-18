@@ -19,7 +19,7 @@
 //= require backbone/katnip
 //= require_tree .
 
-(function() {
+ $(document).ready(function() {
 	var app = new Katnip.Routers.AppRouter();
 	Backbone.history.start();	
 })

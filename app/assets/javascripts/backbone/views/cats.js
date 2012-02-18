@@ -7,8 +7,8 @@ Katnip.Views.CatListView = Backbone.View.extend(
 		},
 		render: function()
 		{
-			_.each(this.model.models, function(entity){
-				$(this.el).append(new Katnip.Views.CatListItemView({model:entity}).render().el);
+			_.each(this.model.models, function(cat){
+				$(this.el).append(new Katnip.Views.CatListItemView({model:cat}).render().el);
 			},this);
 			return this;
 		}	
@@ -17,10 +17,10 @@ Katnip.Views.CatListView = Backbone.View.extend(
 Katnip.Views.CatListItemView = Backbone.View.extend(
 	{
 	 	tagName: "li",
-	 	template: _template($('#tpl-cat-details').html()),
+	 	template: JST['backbone/templates/tpl-cat-details'],
 	 	render: function()
 	 	{
-	 		$(this.el).html(this.template(this.model.JSON()));
+	 		$(this.el).html(this.template(this.model.toJSON()));
 	 		return this;
 	 	}
 	 
@@ -29,10 +29,11 @@ Katnip.Views.CatListItemView = Backbone.View.extend(
 
 Katnip.Views.CatView = Backbone.View.extend(
 {
-	template: _.template($('#tpl-cat-details').html()),
+	template: JST['backbone/templates/tpl-cat-details'],
 	render: function()
 	{
 		$(this.el).html(this.template(this.model.toJSON()));
+		return this;
 	}
 }
 )
