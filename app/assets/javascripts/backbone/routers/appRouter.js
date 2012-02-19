@@ -4,8 +4,10 @@ Katnip.Routers.AppRouter = Backbone.Router.extend(
 		{
 			"": "list",
 			"cats/:id" : "catDetails",
+			"new" : "newCat",
 			"cats/:id/events" : "catEvents"
 		},
+		
 		list: function()
 		{
 			this.catList = new Katnip.Models.CatCollection();
@@ -24,6 +26,11 @@ Katnip.Routers.AppRouter = Backbone.Router.extend(
 			$('#details').append(this.eventView.render().el);
 		},
 		
+		newCat: function() {
+          this.newCatView = new Katnip.Views.CatsNew({ collection: this.catList });
+          $('#new-cat').html(this.newCatView.render().el);
+        },
+        
 		catEvents: function(id)
 		{	
 		}

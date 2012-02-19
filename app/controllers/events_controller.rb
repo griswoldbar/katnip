@@ -8,7 +8,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.new(params[:question])
+    @event = Event.new(params[:event])
     if @event.save
       render :json => @event
     end
