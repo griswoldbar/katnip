@@ -1,5 +1,14 @@
-<a href='#cats/<%= id%>'>
-<%= name%>
+<h1>Our cats:</h1>
+<% _.each(cats, function(cat){ %>
+<div style="clear:both">
+<div style="float:left">
+<a href="#cats/<%= cat.id%>">
+<%= cat.name%>
 </a>
-
+</div>
+<div id="catdetails<%= cat.id%>" style="float:left">
+</div>
+</div>
+<%});%>
+<br/>
 <a class="create" href="#new">Add cat</a>

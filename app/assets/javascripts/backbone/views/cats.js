@@ -1,16 +1,15 @@
 Katnip.Views.CatListView = Backbone.View.extend(
 	{
-		tagName: "ul",
+		tagName: "div",
+		template: JST['backbone/templates/tpl-cat-list'],
 		initialize: function()
 		{
 			this.model.bind("reset",this.render,this);
 		},
 		render: function()
 		{
-			_.each(this.model.models, function(cat){
-				$(this.el).append(new Katnip.Views.CatListItemView({model:cat}).render().el);
-			},this);
-			return this;
+			$(this.el).html(this.template({cats:this.model.toJSON()}));
+	 		return this;
 		}	
 	}
 )

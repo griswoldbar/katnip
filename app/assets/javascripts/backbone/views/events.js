@@ -1,6 +1,5 @@
 Katnip.Views.EventListView = Backbone.View.extend(
 	{
-		tagName: "ul",
 		initialize: function()
 		{
 			this.model.bind("reset",this.render,this);
@@ -17,7 +16,6 @@ Katnip.Views.EventListView = Backbone.View.extend(
 
 Katnip.Views.EventListItemView = Backbone.View.extend(
 	{
-	 	tagName: "li",
 	 	template: JST['backbone/templates/tpl-cat-events'],
 	 	render: function()
 	 	{
