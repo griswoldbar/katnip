@@ -8,7 +8,7 @@ class CatsController < ApplicationController
   end
 
   def create
-    @cat = Cat.new(params[:question])
+    @cat = Cat.new(params[:cat])
     if @cat.save
       render :json => @cat
     end

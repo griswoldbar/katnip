@@ -64,7 +64,7 @@ Katnip.Views.CatsNew = Backbone.View.extend({
   },
 
   renderFlash: function(flashText) {
-    this.$el.prepend(JST['backbone/templates/new-cat-flash']({ flashText: flashText, type: 'success' }));
+    $(this.el).prepend(JST['backbone/templates/new-cat-flash']({ flashText: flashText, type: 'success' }));
   },
 
   save: function(event) {

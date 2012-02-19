@@ -10,7 +10,7 @@ Katnip.Models.Cat = Backbone.Model.extend(
 			this.events.fetch();
 		},
 		schema: {
-            title: { type: "Text" }
+            name: { type: "Text" }
         },
         
 	    url: "/cats"
