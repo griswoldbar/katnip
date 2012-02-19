@@ -1,4 +1,17 @@
-Katnip.Models.Cat = Backbone.Model.extend();
+Katnip.Models.Cat = Backbone.Model.extend(
+	{
+		initialize: function()
+		{
+			this.events = new Katnip.Models.EventCollection();
+		},
+		getEvents : function()
+		{		
+			alert(this.get('name'));
+			this.events.url = '/cats/' + this.id + '/events';
+			this.events.fetch();
+		}
+	}
+)
 
 Katnip.Models.CatCollection = Backbone.Collection.extend(
 	{
