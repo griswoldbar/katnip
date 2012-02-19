@@ -41,7 +41,7 @@ Katnip.Views.CatView = Backbone.View.extend(
 Katnip.Views.CatsNew = Backbone.View.extend({
   tagName: 'form',
   id: "new-cat",
-
+  
   events: {
     "submit": "save",
     "click a.leave": "leave"
@@ -58,8 +58,8 @@ Katnip.Views.CatsNew = Backbone.View.extend({
   },
 
   render: function () {
-    this.$el.html(this.form.render().el);
-    this.$('ul').append(JST['backbone/templates/tpl-cat-form_buttons']());
+    $(this.el).html(this.form.render().el);
+    this.$('ul').append(JST['backbone/templates/tpl-cat-form-buttons']());
     return this;
   },
 
