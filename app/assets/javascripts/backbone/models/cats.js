@@ -6,7 +6,6 @@ Katnip.Models.Cat = Backbone.Model.extend(
 		},
 		getEvents : function()
 		{		
-			alert(this.get('name'));
 			this.events.url = '/cats/' + this.id + '/events';
 			this.events.fetch();
 		}
