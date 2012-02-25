@@ -18,6 +18,7 @@
 
 //= require backbone-forms.js
 //= require jquery-ui-editors.js
+//= require uploader.js
 
 //= require backbone_rails_sync
 //= require backbone_datalink

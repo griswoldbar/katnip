@@ -2,6 +2,7 @@ Katnip::Application.routes.draw do
   
   resources :cats do
     resources :events
+    resources :attachments, :only => [:create, :show]
   end
   resources :events
   

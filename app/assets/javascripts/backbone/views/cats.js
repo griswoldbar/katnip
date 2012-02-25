@@ -43,7 +43,8 @@ Katnip.Views.CatsNew = Backbone.View.extend({
   
   events: {
     "submit": "save",
-    "click a.leave": "leave"
+    "click a.leave": "leave",
+    "click .upload button": "upload"
   },
 
   initialize: function() {
@@ -60,6 +61,8 @@ Katnip.Views.CatsNew = Backbone.View.extend({
     $(this.el).html(this.form.render().el);
     this.$('ul').append(JST['backbone/templates/tpl-cat-form-buttons']());
     $(this.el).dialog({ modal: true });
+    this.renderAttachments();
+    this.attachUploader();
     return this;
   },
 
@@ -85,7 +88,45 @@ Katnip.Views.CatsNew = Backbone.View.extend({
     this.unbind();
     this.remove(); 
     $(this.el).dialog("close");
-  }
+  },
+  
+  upload: function() {
+    this.uploader.send();
+  },
+  
+  uploadSuccess: function(data) {
+    this.model.fetch();
+  },
+  
+  attachUploader: function() {
+    var uploadUrl = "/cats/" + this.model.get('id') + '/attachments.json';
+
+    this.uploader = new uploader(this.uploadInput(), {
+      url:      uploadUrl,
+      success:  this.uploadSuccess,
+      prefix:   'upload'
+    });
+
+    this.uploader.prefilter = function() {
+      var token = $('meta[name="csrf-token"]').attr('content');
+      if (token) this.xhr.setRequestHeader('X-CSRF-Token', token);
+    }
+  },
+  
+  renderAttachments: function() {
+    var self = this;
+    var $attachments = this.$('ul.attachments');
+    $attachments.html('');
+
+    this.model.attachments.each(function(attachment) {
+      var attachmentView = $('<li><p></p><img></li>');
+      $('p', attachmentView).text("Attached: " + attachment.escape('upload_file_name'));
+      $('img', attachmentView).attr("src", attachment.get('upload_url'));
+      $attachments.append(attachmentView);
+    });
+  },
+  
+  
 })
 
 
