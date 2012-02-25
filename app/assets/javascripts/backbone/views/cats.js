@@ -74,11 +74,12 @@ Katnip.Views.CatsNew = Backbone.View.extend({
 
   saved: function() {
     var flash = "Created cat: " + this.model.escape('name');
-
     this.collection.add(this.model);
     this.newCat();
     this.render();
     this.renderFlash(flash);
+
+    // this.leave();
   },
 
   leave: function() {
