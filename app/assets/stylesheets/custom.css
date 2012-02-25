@@ -1,0 +1,32 @@
+.body{
+height:99%;
+width:99%;
+background-color:#DDDDDD;
+}
+.catBoxSummaryView
+{
+padding:20px;
+margin:20px;
+float:left;
+height:150px;
+width:150px;
+background-color: gray;
+-moz-border-radius: 35px;
+border-radius: 35px;
+text-align: center;
+vertical-align: middle;
+font-size: 28px;
+background: -moz-linear-gradient(45deg, rgba(163,225,177,1) 0%, rgba(115,191,133,1) 43%);
+}
+.catBoxSummaryView a
+{
+color: #ffdd88;
+text-shadow: 0 0 1px #444444;
+text-decoration: none;
+}
+.catsContainer
+{
+width:98%;
+text-align: center;
+
+}
