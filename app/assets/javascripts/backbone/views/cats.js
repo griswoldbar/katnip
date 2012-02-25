@@ -59,6 +59,7 @@ Katnip.Views.CatsNew = Backbone.View.extend({
   render: function () {
     $(this.el).html(this.form.render().el);
     this.$('ul').append(JST['backbone/templates/tpl-cat-form-buttons']());
+    $(this.el).dialog({ modal: true });
     return this;
   },
 
@@ -78,13 +79,12 @@ Katnip.Views.CatsNew = Backbone.View.extend({
     this.newCat();
     this.render();
     this.renderFlash(flash);
-
-    // this.leave();
   },
 
   leave: function() {
     this.unbind();
-    this.remove();
+    this.remove(); 
+    $(this.el).dialog("close");
   }
 })
 
