@@ -15,6 +15,7 @@
 //= require jquery-ui
 //= require underscore
 //= require backbone
+//= require backbone.authtokenadapter
 
 //= require backbone-forms.js
 //= require jquery-ui-editors.js
