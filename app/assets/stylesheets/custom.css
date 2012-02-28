@@ -1,21 +1,15 @@
-.body{
-height:99%;
-width:99%;
-background-color:#DDDDDD;
-}
 .catBoxSummaryView
 {
-padding:20px;
-margin:20px;
+padding:10px;
+margin:10px;
 float:left;
-height:150px;
-width:150px;
-background-color: gray;
+height:100px;
+width:100px;
 -moz-border-radius: 35px;
 border-radius: 35px;
 text-align: center;
 vertical-align: middle;
-font-size: 28px;
+font-size: 22px;
 background: -moz-linear-gradient(45deg, rgba(163,225,177,1) 0%, rgba(115,191,133,1) 43%);
 }
 .catBoxSummaryView a
@@ -28,5 +22,18 @@ text-decoration: none;
 {
 width:98%;
 text-align: center;
-
+clear:both;
+}
+a.newCatButton
+{
+color: #992222;
+font-size: 20px;
+font-weight:600;
+text-decoration: none;
+}
+.newCatButton img
+{
+color: #992222;
+height:70px;
+vertical-align:middle
 }

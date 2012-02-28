@@ -5,11 +5,14 @@ Katnip.Views.CatListView = Backbone.View.extend(
 		initialize: function()
 		{
 			this.model.bind("reset",this.render,this);
+		 	this.model.bind("add",this.render,this);	
 		},
 		render: function()
 		{
+			this.model.sort({silent:true});
 			$(this.el).html(this.template({cats:this.model.toJSON()}));
-	 		return this;
+			return this;
 		}	
+		
 	}
 )

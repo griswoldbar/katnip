@@ -4,8 +4,7 @@ Katnip.Views.CatsNew = Backbone.View.extend({
   
   events: {
     "click a.leave": "leave",
-    "click .upload button": "upload",
-    "click submit": "save"
+    "click a.newCat": "save"
   },
 
   initialize: function() {
@@ -16,17 +15,12 @@ Katnip.Views.CatsNew = Backbone.View.extend({
   newCat: function() {
     this.model = new Katnip.Models.Cat();
     this.form = new Backbone.Form({ model: this.model });
-   
-    
   },
 
   render: function () {
-    $(this.el).html(this.form.render().el);
-    // this.renderAttachments();    
- this.$('ul').append(JST['backbone/templates/tpl-cat-form-buttons']());
-    this.attachUploader();
+    $(this.el).html(this.form.render().el);    
+    this.$('ul').append(JST['backbone/templates/tpl-cat-form-buttons']());
     $(this.el).dialog({ modal: true });
-    
     return this;
   },
 
@@ -54,52 +48,7 @@ Katnip.Views.CatsNew = Backbone.View.extend({
     $(this.el).dialog("close");
   },
   
-  upload: function() {
-    this.uploader.send();
-  },
-  
-  uploadSuccess: function(data) {
-    this.model.fetch();
-  },
-  
-  attachUploader: function() {
-    var uploadUrl = "/cats/1/attachments.json";
-
-    this.uploader = new uploader(this.uploadInput(), {
-      url:      uploadUrl,
-      success:  this.uploadSuccess,
-      prefix:   'upload'
-    });
-
-    this.uploader.prefilter = function() {
-      var token = $('meta[name="csrf-token"]').attr('content');
-      if (token) this.xhr.setRequestHeader('X-CSRF-Token', token);
-    }
-  },
-  
-  uploadInput: function() {
-    // this.$('.upload input').attr('id',  'upload_' + 1);
-    // this.$('.upload label').attr('for', 'upload_' + 1);
-      
-    //var blah = $('.upload input');
-    return this.$('.upload input').get(0);
-    //return '/Users/hosmer_angel/Desktop/jekyll.jpg';
-  },
-  
-  renderAttachments: function() {
-    var self = this;
-    var $attachments = this.$('ul.attachments');
-    $attachments.html('');
-
-    this.model.attachments.each(function(attachment) {
-      var attachmentView = $('<li><p></p><img></li>');
-      $('p', attachmentView).text("Attached: " + attachment.escape('upload_file_name'));
-      $('img', attachmentView).attr("src", attachment.get('upload_url'));
-      $attachments.append(attachmentView);
-    });
-  },
-  
-  
+ 
 })
 
 
