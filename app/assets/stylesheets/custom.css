@@ -10,13 +10,18 @@ border-radius: 35px;
 text-align: center;
 vertical-align: middle;
 font-size: 22px;
-background: -moz-linear-gradient(45deg, rgba(163,225,177,1) 0%, rgba(115,191,133,1) 43%);
+background: -moz-linear-gradient(45deg, rgba(125,150,150,1) 0%, rgba(25,80,80,1) 43%);
 }
 .catBoxSummaryView a
 {
-color: #ffdd88;
-text-shadow: 0 0 1px #444444;
+color: #ffffff;
+text-shadow: 0 0 1px #222222;
 text-decoration: none;
+}
+.catBoxSummaryView a:hover
+{
+color: #ffffff;
+text-shadow: 0 0 12px #ffffff
 }
 .catsContainer
 {
@@ -26,9 +31,14 @@ clear:both;
 }
 a.newCatButton
 {
-color: #992222;
+color: #555533;
 font-size: 20px;
 font-weight:600;
+text-decoration: none;
+}
+.newCatButton:hover
+{
+color: #336699;
 text-decoration: none;
 }
 .newCatButton img
